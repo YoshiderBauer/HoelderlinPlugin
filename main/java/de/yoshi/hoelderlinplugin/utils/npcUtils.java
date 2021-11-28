@@ -34,7 +34,7 @@ public class npcUtils {
         npc = new EntityPlayer(server, world, gameProfile);
         setSkin(skinName, gameProfile);
         npc.setLocation(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
-        npc.setInvulnerable(true);
+        npc.setInvulnerable(false);
         npc.setNoGravity(true);
         NPC.add(npc);
         addNPCPacket(npc);
