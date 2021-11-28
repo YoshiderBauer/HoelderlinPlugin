@@ -16,7 +16,7 @@ import java.util.List;
 
 public class statusCommand implements CommandExecutor, TabCompleter {
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) { //!funktioniert noch nicht!
         if(!(sender instanceof Player)){
             Main.log(Main.NOPERMISSION);
             return true;

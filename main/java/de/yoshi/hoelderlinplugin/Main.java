@@ -111,12 +111,15 @@ public final class Main extends JavaPlugin {
         if(settings.getBoolean("lobbyCommand") == true){
             Bukkit.getPluginCommand("lobby").setExecutor(new lobbyCommand());
         }
+        if(settings.getBoolean("botCommand") == true){
+            Bukkit.getPluginCommand("bot").setExecutor(new botCommand());
+        }
         Bukkit.getPluginCommand("start").setExecutor(new startCommand());
         Bukkit.getPluginCommand("afk").setExecutor(new afkCommand());
         //Bukkit.getPluginCommand("afk").setTabCompleter(new afkCommand());
-        Bukkit.getPluginCommand("bot").setExecutor(new botCommand());
+
         Bukkit.getPluginCommand("uhrzeit").setExecutor(new timeCommand());
-        //Bukkit.getPluginCommand("status").setExecutor(new statusCommand());
+        //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!
         //Bukkit.getPluginCommand("status").setTabCompleter(new statusCommand());
         Bukkit.getPluginCommand("cam").setExecutor(new camCommand());
     }
@@ -143,6 +146,12 @@ public final class Main extends JavaPlugin {
         }
         if(!(settings.isSet("lobbyCommand"))){
             settings.set("lobbyCommand", false);
+        }
+        if(!(settings.isSet("botCommand"))){
+            settings.set("botCommand", false);
+        }
+        if(!(settings.isSet("botCommand Beschreibung"))){
+            settings.set("botCommand Beschreibung", "Bots können noch nicht gelöscht werden! \n Der Server muss neugestartet werden umm Bots zu löschen! \nBots halten den Server dauerhaft online. \nMeistens nicht vereinbar mit den AGBs!");
         }
         if(!(settings.isSet("showPing"))){
             settings.set("showPing", false);

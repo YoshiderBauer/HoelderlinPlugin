@@ -23,7 +23,7 @@ commands:
   uhrzeit:
     description: Zeigt die Aktuelle Zeit!
     aliases: zeit
-  #status:
+  #status: !funktioniert noch nicht!
   #  description: Damit kannst du deinen Status festlegen!
   cam:
     description: Damit kannst Cam-Accounts festlegen.
