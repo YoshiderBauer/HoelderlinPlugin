@@ -151,7 +151,7 @@ public final class Main extends JavaPlugin {
             settings.set("botCommand", false);
         }
         if(!(settings.isSet("botCommand Beschreibung"))){
-            settings.set("botCommand Beschreibung", "Bots können noch nicht gelöscht werden! \n Der Server muss neugestartet werden umm Bots zu löschen! \nBots halten den Server dauerhaft online. \nMeistens nicht vereinbar mit den AGBs!");
+            settings.set("botCommand Beschreibung", "Bots können noch nicht gelöscht werden! Der Server muss neugestartet werden um Bots zu löschen! Bots halten den Server dauerhaft online. Meistens nicht vereinbar mit den AGBs!");
         }
         if(!(settings.isSet("showPing"))){
             settings.set("showPing", false);
