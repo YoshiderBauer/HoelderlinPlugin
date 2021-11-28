@@ -28,6 +28,8 @@ commands:
   cam:
     description: Damit kannst Cam-Accounts festlegen.
     permission: op
+  ping:
+    description: Zeigt den aktuellen ping des Spielers
 
 permissions:
   de.yoshi.bot:

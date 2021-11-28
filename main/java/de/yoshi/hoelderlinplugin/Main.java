@@ -122,6 +122,7 @@ public final class Main extends JavaPlugin {
         //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!
         //Bukkit.getPluginCommand("status").setTabCompleter(new statusCommand());
         Bukkit.getPluginCommand("cam").setExecutor(new camCommand());
+        Bukkit.getPluginCommand("ping").setExecutor(new pingCommand());
     }
 
     public static void sendServer(Player player, String server){
