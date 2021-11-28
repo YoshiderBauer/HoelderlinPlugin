@@ -1,0 +1,36 @@
+name: Hoelderlinserver
+version: ${project.version}
+main: de.yoshi.hoelderlinplugin.Main
+api-version: 1.17
+authors: [ Yoshi_der_Bauer ]
+description: Hoelderlinserver Plugin
+
+commands:
+  lobby:
+    description: Damit wirst du mit dem Server Lobby verbunden
+    aliases: ["hub"]
+  afk:
+    description: Damit kannst du dich als AFK markieren
+  start:
+    description: damit kannst du den Server eröffnen
+    permission: op
+    permission-message: Du hast keine Berechtigung diesen Command zu benutzern.
+  bot:
+    description: damit kannnst du ein Bot erschaffen
+    permission: de.yoshi.bot
+    permission-message: Du hast keine Berechtigung diesen Command zu benutzern.
+    usage: <name> <skin of player>
+  uhrzeit:
+    description: Zeigt die Aktuelle Zeit!
+    aliases: zeit
+  #status:
+  #  description: Damit kannst du deinen Status festlegen!
+  cam:
+    description: Damit kannst Cam-Accounts festlegen.
+    permission: op
+
+permissions:
+  de.yoshi.bot:
+    default: op
+  de.yoshi.player:
+    default: false
