@@ -36,6 +36,7 @@ public class npcUtils {
         npc.setLocation(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
         npc.setInvulnerable(false);
         npc.setNoGravity(true);
+        npc.setHealth(20);
         NPC.add(npc);
         addNPCPacket(npc);
     }
@@ -54,6 +55,10 @@ public class npcUtils {
         connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.a, npc));
         connection.sendPacket(new PacketPlayOutNamedEntitySpawn(npc));
         connection.sendPacket(new PacketPlayOutEntityHeadRotation(npc, (byte) (npc.getBukkitYaw() * 256 / 360)));
+    }
+
+    public static void killNPC(EntityPlayer npc){
+        npc.killEntity();
     }
 
 
