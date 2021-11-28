@@ -16,7 +16,7 @@ public class pingCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        player.sendMessage(Main.PREFIX + "Dein Ping liegt bei: " + player.getPing() + "ms!");
+        player.sendMessage(Main.PREFIX + "Dein Ping liegt bei: " + player.getPing() + " ms");
         return true;
     }
 }

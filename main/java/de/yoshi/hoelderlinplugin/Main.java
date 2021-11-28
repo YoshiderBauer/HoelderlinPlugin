@@ -83,9 +83,10 @@ public final class Main extends JavaPlugin {
         ItemStack Bundle = new ItemStack(Material.BUNDLE);
         NamespacedKey key = new NamespacedKey(this, "Bundle");
         ShapedRecipe recipe = new ShapedRecipe(key, Bundle);
-        recipe.shape("SHS", "HHH", "HHH");
+        recipe.shape("SHS", "H H", "HHH");
         recipe.setIngredient('H', Material.RABBIT_HIDE);
         recipe.setIngredient('S', Material.STRING);
+        Bukkit.addRecipe(recipe);
     }
 
     private void addSculcSensor(){
@@ -95,6 +96,7 @@ public final class Main extends JavaPlugin {
         recipe.shape("EOE", "OOO");
         recipe.setIngredient('E', Material.ENDER_PEARL);
         recipe.setIngredient('O', Material.OBSIDIAN);
+        Bukkit.addRecipe(recipe);
     }
 
     private void register(){
