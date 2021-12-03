@@ -26,7 +26,7 @@ public class JoinQuitListener implements Listener {
         fileconfig status = new fileconfig("status.yml");
         fileconfig afk = new fileconfig("afk.yml");
         if(afk.getBoolean(player.getName()) == false && player.hasPermission("op")){
-            player.setPlayerListName("[§cAdmin§f] " + player.getName());
+            player.setPlayerListName("[§cADMIN§f] " + player.getName());
         } else if(afk.getBoolean(player.getName()) == false &! player.hasPermission("op")){
             player.setPlayerListName("[§aPlayer§f] " + player.getName());
         } else if (afk.getBoolean(player.getName()) == true){

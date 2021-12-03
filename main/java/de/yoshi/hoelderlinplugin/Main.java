@@ -58,6 +58,7 @@ public final class Main extends JavaPlugin {
         log("Das Plugin wurde geladen.");
         log("§cDer Server muss nach dem ersten Laden des Plugins neugestartet werden!");
 
+
     }
 
     @Override
