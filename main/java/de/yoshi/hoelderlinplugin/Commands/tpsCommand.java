@@ -14,18 +14,18 @@ public class tpsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         double TPS = tpsUtils.getTPS();
-        DecimalFormat tpsFormat = new DecimalFormat("#.##");
+        DecimalFormat tpsFormat = new DecimalFormat("#");
 
         if(!(commandSender instanceof Player)){
-            Main.log(Main.PREFIX + "Aktuelle TPS: " + tpsFormat.format(TPS));
+            Main.log("Aktuelle TPS: " + tpsFormat.format(TPS));
             return true;
         }
 
         Player player = (Player) commandSender;
 
-        if(TPS > 20){
+        if(TPS > 19.5){
             player.sendMessage( Main.PREFIX + "§rAktuelle TPS: §a" + tpsFormat.format(TPS));
-        } else if(TPS < 20 && TPS > 10){
+        } else if(TPS < 19.5 && TPS > 10){
             player.sendMessage(Main.PREFIX + "§rAktuelle TPS: §e" + tpsFormat.format(TPS));
         } else if(TPS < 10){
             player.sendMessage(Main.PREFIX + "§rAktuelle TPS: §c" + tpsFormat.format(TPS));
