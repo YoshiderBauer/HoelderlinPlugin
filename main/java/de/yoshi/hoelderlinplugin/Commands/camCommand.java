@@ -24,7 +24,7 @@ public class camCommand implements CommandExecutor {
             player.sendMessage(Main.PREFIX + Main.NOPERMISSION);
             return false;
         }
-
+        fileconfig status = new fileconfig("status.yml");
         if(args[0] == ""){
             player.sendMessage(Main.PREFIX + "§cDu musst noch einen Cam-Account eingeben.");
             return false;
@@ -33,13 +33,24 @@ public class camCommand implements CommandExecutor {
             if(cam == null){
                 player.sendMessage(Main.PREFIX + " §cDieser Spieler existiert nicht!");
                 return true;
-            } else {
+            } else if(status.getBoolean(cam.getName()) == false){
                 cam.setGameMode(GameMode.SPECTATOR);
                 cam.setPlayerListName("§7[Cam] " + cam.getName());
                 cam.sendMessage(Main.PREFIX + "Du bist nun als Cam-Account registriert!");
-                fileconfig status = new fileconfig("status.yml");
-                status.set(cam.getName(), "cam");
+                status.set(cam.getName(), true);
                 status.saveConfig();
+                return true;
+            } else if(status.getBoolean(cam.getName()) == true){
+                cam.setGameMode(GameMode.SURVIVAL);
+                if(cam.hasPermission("op")){
+                    cam.setPlayerListName("[§cADMIN§f] " + cam.getName());
+                } else {
+                    cam.setPlayerListName("[§aPlayer§f] " + cam.getName());
+                }
+                cam.sendMessage(Main.PREFIX + "Du bist nun wieder ein normaler Spieler!");
+                status.set(cam.getName(), false);
+                status.saveConfig();
+                return true;
             }
         }
         return false;

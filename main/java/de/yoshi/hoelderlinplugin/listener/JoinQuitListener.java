@@ -32,7 +32,7 @@ public class JoinQuitListener implements Listener {
         } else if (afk.getBoolean(player.getName()) == true){
             player.setPlayerListName("§7[AFK] " + player.getName());
             player.sendMessage(Main.PREFIX + "§7Du bist noch AFK!");
-        } else if (status.getString(player.getName()) == "cam"){
+        } else if (status.getBoolean(player.getName()) == true){
             player.setPlayerListName("§f§7[CAM] " + player.getName());
             player.setGameMode(GameMode.SPECTATOR);
         }
@@ -45,6 +45,11 @@ public class JoinQuitListener implements Listener {
             player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 999999, 255, true, false, false));
             player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999, 255, true, false, false));
             player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 999999, 255, true, false, false));
+        }
+
+        if(!(status.isSet(player.getName()))){
+            status.set(player.getName(), false);
+            Main.log(player.getName() + " hat zum ersten Mal den Server betreten!");
         }
 
         if(!(npcUtils.getNPCs().isEmpty())){
