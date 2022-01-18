@@ -14,6 +14,9 @@ public class tpsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         double TPS = tpsUtils.getTPS();
+        if(TPS > 20){
+            TPS = 20.0;
+        }
         DecimalFormat tpsFormat = new DecimalFormat("#");
 
         if(!(commandSender instanceof Player)){
