@@ -23,7 +23,7 @@ commands:
   uhrzeit:
     description: Zeigt die Aktuelle Zeit!
     aliases: zeit
-  tps:
+  ticks:
     description: Zeigt die Aktuelle Server TPS
   #status: !funktioniert noch nicht!
   #  description: Damit kannst du deinen Status festlegen!

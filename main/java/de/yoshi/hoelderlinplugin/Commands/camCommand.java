@@ -35,7 +35,7 @@ public class camCommand implements CommandExecutor {
                 return true;
             } else if(status.getBoolean(cam.getName()) == false){
                 cam.setGameMode(GameMode.SPECTATOR);
-                cam.setPlayerListName("§7[Cam] " + cam.getName());
+                cam.setPlayerListName("§f§7[CAM] " + cam.getName());
                 cam.sendMessage(Main.PREFIX + "Du bist nun als Cam-Account registriert!");
                 status.set(cam.getName(), true);
                 status.saveConfig();

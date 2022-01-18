@@ -17,18 +17,18 @@ public class tpsCommand implements CommandExecutor {
         DecimalFormat tpsFormat = new DecimalFormat("#.##");
 
         if(!(commandSender instanceof Player)){
-            Main.log("Aktuelle TPS: " + tpsFormat.format(TPS));
+            Main.log(Main.PREFIX + "Aktuelle TPS: " + tpsFormat.format(TPS));
             return true;
         }
 
         Player player = (Player) commandSender;
 
         if(TPS > 20){
-            player.sendMessage("Aktuelle TPS: §a" + tpsFormat.format(TPS));
+            player.sendMessage( Main.PREFIX + "§rAktuelle TPS: §a" + tpsFormat.format(TPS));
         } else if(TPS < 20 && TPS > 10){
-            player.sendMessage("Aktuelle TPS: §e" + tpsFormat.format(TPS));
+            player.sendMessage(Main.PREFIX + "§rAktuelle TPS: §e" + tpsFormat.format(TPS));
         } else if(TPS < 10){
-            player.sendMessage("Aktuelle TPS: §c" + tpsFormat.format(TPS));
+            player.sendMessage(Main.PREFIX + "§rAktuelle TPS: §c" + tpsFormat.format(TPS));
         }
         return true;
     }

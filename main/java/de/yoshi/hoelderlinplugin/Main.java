@@ -124,7 +124,7 @@ public final class Main extends JavaPlugin {
 
         Bukkit.getPluginCommand("uhrzeit").setExecutor(new timeCommand());
         if(settings.getBoolean("tpsCommand") == true){
-            Bukkit.getPluginCommand("tps").setExecutor(new tpsCommand());
+            Bukkit.getPluginCommand("ticks").setExecutor(new tpsCommand());
         }
         //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!
         //Bukkit.getPluginCommand("status").setTabCompleter(new statusCommand());
