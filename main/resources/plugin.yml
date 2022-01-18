@@ -14,15 +14,17 @@ commands:
   start:
     description: damit kannst du den Server eröffnen
     permission: op
-    permission-message: Du hast keine Berechtigung diesen Command zu benutzern.
+    permission-message: Du hast keine Berechtigung diesen Command zu benutzen.
   bot:
     description: damit kannnst du ein Bot erschaffen
     permission: de.yoshi.bot
-    permission-message: Du hast keine Berechtigung diesen Command zu benutzern.
+    permission-message: Du hast keine Berechtigung diesen Command zu benutzen.
     usage: <name> <skin of player>
   uhrzeit:
     description: Zeigt die Aktuelle Zeit!
     aliases: zeit
+  tps:
+    description: Zeigt die Aktuelle Server TPS
   #status: !funktioniert noch nicht!
   #  description: Damit kannst du deinen Status festlegen!
   cam:

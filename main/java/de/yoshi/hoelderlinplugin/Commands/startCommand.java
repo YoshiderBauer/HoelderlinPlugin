@@ -38,7 +38,7 @@ public class startCommand implements CommandExecutor {
         start.set("start", true);
         start.saveConfig();
         world.getWorldBorder().setCenter(world.getSpawnLocation());
-        world.getWorldBorder().setSize(200000000, 2000);
+        world.getWorldBorder().setSize(29999984, 2000);
         world.setDifficulty(Difficulty.HARD);
         Bukkit.getServer().setDefaultGameMode(GameMode.SURVIVAL);
         fileconfig status = new fileconfig("status.yml");

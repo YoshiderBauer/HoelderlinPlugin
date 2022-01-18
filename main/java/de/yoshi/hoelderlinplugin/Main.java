@@ -7,6 +7,7 @@ import de.yoshi.hoelderlinplugin.listener.gamemodeListener;
 import de.yoshi.hoelderlinplugin.listener.serverPing;
 import de.yoshi.hoelderlinplugin.utils.ItemBuilder;
 import de.yoshi.hoelderlinplugin.utils.fileconfig;
+import de.yoshi.hoelderlinplugin.utils.tpsUtils;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -122,10 +123,16 @@ public final class Main extends JavaPlugin {
         //Bukkit.getPluginCommand("afk").setTabCompleter(new afkCommand());
 
         Bukkit.getPluginCommand("uhrzeit").setExecutor(new timeCommand());
+        if(settings.getBoolean("tpsCommand") == true){
+            Bukkit.getPluginCommand("tps").setExecutor(new tpsCommand());
+        }
         //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!
         //Bukkit.getPluginCommand("status").setTabCompleter(new statusCommand());
         Bukkit.getPluginCommand("cam").setExecutor(new camCommand());
         Bukkit.getPluginCommand("ping").setExecutor(new pingCommand());
+
+        //Scheduler
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new tpsUtils(), 100L, 1L);
     }
 
     public static void sendServer(Player player, String server){
@@ -153,6 +160,9 @@ public final class Main extends JavaPlugin {
         }
         if(!(settings.isSet("botCommand"))){
             settings.set("botCommand", false);
+        }
+        if(!(settings.isSet("tpsCommand"))){
+            settings.set("tpsCommand", true);
         }
         if(!(settings.isSet("botCommand Beschreibung"))){
             settings.set("botCommand Beschreibung", "Bots können noch nicht gelöscht werden! Der Server muss neugestartet werden um Bots zu löschen! Bots halten den Server dauerhaft online. Meistens nicht vereinbar mit den AGBs!");
