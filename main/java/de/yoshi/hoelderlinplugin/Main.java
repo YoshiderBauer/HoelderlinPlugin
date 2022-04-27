@@ -24,7 +24,7 @@ import java.io.IOException;
 public final class Main extends JavaPlugin {
 
     static fileconfig settings = new fileconfig("settings.yml");
-    public static final String PREFIX = settings.getString("PREFIX"); //"§7| §f§lHölderlinserver §l§7x§a "
+    public static final String PREFIX = settings.getString("PREFIX"); //Default: "§7| §f§lHölderlinserver §l§7x§a "
     public static final String NOPERMISSION = "§cDu hast keine Berechtigung diesen Command auszuführen!";
     public static Main INSTANCE;
 
