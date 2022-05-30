@@ -44,12 +44,12 @@ public final class Main extends JavaPlugin {
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         World world = (World) Bukkit.getWorlds().get(0);
         fileconfig start = new fileconfig("start.yml");
-        if(start.getBoolean("start") == false){
+        if(!start.getBoolean("start")){
             world.setDifficulty(Difficulty.PEACEFUL);
             Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
             world.getWorldBorder().setCenter(world.getSpawnLocation());
             world.getWorldBorder().setSize(20.0);
-        } else if (start.getBoolean("start") == true){
+        } else if (start.getBoolean("start")){
             world.setDifficulty(Difficulty.HARD);
             Bukkit.getServer().setDefaultGameMode(GameMode.SURVIVAL);
             world.getWorldBorder().setCenter(world.getSpawnLocation());
