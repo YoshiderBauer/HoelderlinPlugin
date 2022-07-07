@@ -20,7 +20,7 @@ public class fileconfig extends YamlConfiguration {
     }
 
     public fileconfig(String fileName){
-        this("HoelderlinServer", fileName);
+        this("SurvivalServerPlugin", fileName);
     }
 
 

@@ -24,7 +24,7 @@ import java.io.IOException;
 public final class Main extends JavaPlugin {
 
     static fileconfig settings = new fileconfig("settings.yml");
-    public static final String PREFIX = settings.getString("PREFIX"); //Default: "§7| §f§lHölderlinserver §l§7x§a "
+    public static final String PREFIX = settings.getString("PREFIX"); //Default: "§7| §f§lSurvival Server §l§7x§a "
     public static final String NOPERMISSION = "§cDu hast keine Berechtigung diesen Command auszuführen!";
     public static Main INSTANCE;
 
@@ -153,7 +153,7 @@ public final class Main extends JavaPlugin {
         //set settings.yml
         fileconfig settings = new fileconfig("settings.yml");
         if(!(settings.isSet("PREFIX"))){
-            settings.set("PREFIX", "§7| §f§lHölderlinserver §l§7x§a ");
+            settings.set("PREFIX", "§7| §f§lSurvival Server §l§7x§a ");
         }
         if(!(settings.isSet("lobbyCommand"))){
             settings.set("lobbyCommand", false);
