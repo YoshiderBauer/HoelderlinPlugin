@@ -1,4 +1,4 @@
-name: Survival Server Plugin von Yoshi_der_Bauer
+name: SurvivalServerPlugin
 version: ${project.version}
 main: de.yoshi.hoelderlinplugin.Main
 api-version: 1.17
