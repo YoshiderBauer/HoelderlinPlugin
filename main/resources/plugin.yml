@@ -1,9 +1,9 @@
-name: Hoelderlinserver
+name: Survival Server Plugin von Yoshi_der_Bauer
 version: ${project.version}
 main: de.yoshi.hoelderlinplugin.Main
 api-version: 1.17
 authors: [ Yoshi_der_Bauer ]
-description: Hoelderlinserver Plugin
+description: Survival Server Plugin
 
 commands:
   lobby:
