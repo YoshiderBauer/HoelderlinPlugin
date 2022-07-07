@@ -3,7 +3,7 @@ version: ${project.version}
 main: de.yoshi.hoelderlinplugin.Main
 api-version: 1.17
 authors: [ Yoshi_der_Bauer ]
-description: Survival Server Plugin
+description: SurvivalServerPlugin
 
 commands:
   lobby:
