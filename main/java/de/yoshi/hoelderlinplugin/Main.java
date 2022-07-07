@@ -39,7 +39,7 @@ public final class Main extends JavaPlugin {
         this.register();
         this.setFiles();
         //this.addInvisItemFrame();
-        this.addSculcSensor();
+        //this.addSculcSensor();
         this.addBundle();
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         World world = (World) Bukkit.getWorlds().get(0);
