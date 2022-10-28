@@ -1,7 +1,7 @@
 name: SurvivalServerPlugin
 version: ${project.version}
 main: de.yoshi.hoelderlinplugin.Main
-api-version: 1.17
+api-version: 1.19
 authors: [ Yoshi_der_Bauer ]
 description: SurvivalServerPlugin
 
