@@ -107,9 +107,9 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new chatListener(), this);
         pluginManager.registerEvents(new serverPing(), this);
         pluginManager.registerEvents(new gamemodeListener(), this);
-        if(!settings.getBoolean("SpawnElytra")){
+        /*if(!settings.getBoolean("SpawnElytra")){*/
             pluginManager.registerEvents(new SpawnElytra(this), this);
-        }
+        //}
 
 
         //Commands:
