@@ -191,6 +191,16 @@ public final class Main extends JavaPlugin {
         if(!(settings.isSet("Motd7"))){
             settings.set("Motd7", "Tot, Halbes!");
         }
+
+        if(!(settings.isSet("SpawnElytra"))){
+            settings.set("SpawnElytra", true);
+        }
+        if(!(settings.isSet("SpawnElytraBoost"))){
+            settings.set("SpawnElytraBoost", 5);
+        }
+        if(!(settings.isSet("SpawnRadius"))){
+            settings.set("SpawnRadius", 30);
+        }
         settings.saveConfig();
 
         fileconfig start = new fileconfig("start.yml");
