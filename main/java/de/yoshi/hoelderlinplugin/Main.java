@@ -116,9 +116,6 @@ public final class Main extends JavaPlugin {
         if(settings.getBoolean("lobbyCommand")){
             Bukkit.getPluginCommand("lobby").setExecutor(new lobbyCommand());
         }
-        if(settings.getBoolean("botCommand")){
-            Bukkit.getPluginCommand("bot").setExecutor(new botCommand());
-        }
         Bukkit.getPluginCommand("start").setExecutor(new startCommand());
         Bukkit.getPluginCommand("afk").setExecutor(new afkCommand());
         //Bukkit.getPluginCommand("afk").setTabCompleter(new afkCommand());
@@ -159,14 +156,8 @@ public final class Main extends JavaPlugin {
         if(!(settings.isSet("lobbyCommand"))){
             settings.set("lobbyCommand", false);
         }
-        if(!(settings.isSet("botCommand"))){
-            settings.set("botCommand", false);
-        }
         if(!(settings.isSet("tpsCommand"))){
             settings.set("tpsCommand", true);
-        }
-        if(!(settings.isSet("botCommand Beschreibung"))){
-            settings.set("botCommand Beschreibung", "Bots können noch nicht gelöscht werden! Der Server muss neugestartet werden um Bots zu löschen! Bots halten den Server dauerhaft online. Meistens nicht vereinbar mit den AGBs!");
         }
         if(!(settings.isSet("showPing"))){
             settings.set("showPing", false);
@@ -192,7 +183,6 @@ public final class Main extends JavaPlugin {
         if(!(settings.isSet("Motd7"))){
             settings.set("Motd7", "Tot, Halbes!");
         }
-
         if(!(settings.isSet("SpawnElytra"))){
             settings.set("SpawnElytra", true);
         }

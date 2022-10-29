@@ -11,10 +11,10 @@ import org.bukkit.event.player.PlayerGameModeChangeEvent;
 public class gamemodeListener implements Listener {
     @EventHandler
     private void onChangeGamemode(PlayerGameModeChangeEvent event){
+        event.setCancelled(true);
         Player player = event.getPlayer();
         GameMode gameMode = event.getNewGameMode();
-
-
+        player.setGameMode(gameMode);
         player.playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0f,1.2f);
         player.sendMessage(Main.PREFIX + "§fDein Spielmodus wurde zu §c§l" + gameMode + "§f§r geändert!");
     }

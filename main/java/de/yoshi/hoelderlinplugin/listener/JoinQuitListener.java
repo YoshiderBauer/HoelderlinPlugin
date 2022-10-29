@@ -2,7 +2,6 @@ package de.yoshi.hoelderlinplugin.listener;
 
 import de.yoshi.hoelderlinplugin.Main;
 import de.yoshi.hoelderlinplugin.utils.fileconfig;
-import de.yoshi.hoelderlinplugin.utils.npcUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -50,10 +49,6 @@ public class JoinQuitListener implements Listener {
         if(!(status.isSet(player.getName()))){
             status.set(player.getName(), false);
             Main.log(player.getName() + " hat zum ersten Mal den Server betreten!");
-        }
-
-        if(!(npcUtils.getNPCs().isEmpty())){
-            npcUtils.joinNPCPacket(player, npcUtils.npc);
         }
 
     }
