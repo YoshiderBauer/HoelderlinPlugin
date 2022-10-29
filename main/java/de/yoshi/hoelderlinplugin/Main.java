@@ -107,13 +107,16 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new chatListener(), this);
         pluginManager.registerEvents(new serverPing(), this);
         pluginManager.registerEvents(new gamemodeListener(), this);
-        pluginManager.registerEvents(new SpawnElytra(this), this);
+        if(!settings.getBoolean("SpawnElytra")){
+            pluginManager.registerEvents(new SpawnElytra(this), this);
+        }
+
 
         //Commands:
-        if(settings.getBoolean("lobbyCommand") == true){
+        if(settings.getBoolean("lobbyCommand")){
             Bukkit.getPluginCommand("lobby").setExecutor(new lobbyCommand());
         }
-        if(settings.getBoolean("botCommand") == true){
+        if(settings.getBoolean("botCommand")){
             Bukkit.getPluginCommand("bot").setExecutor(new botCommand());
         }
         Bukkit.getPluginCommand("start").setExecutor(new startCommand());
@@ -121,7 +124,7 @@ public final class Main extends JavaPlugin {
         //Bukkit.getPluginCommand("afk").setTabCompleter(new afkCommand());
 
         Bukkit.getPluginCommand("uhrzeit").setExecutor(new timeCommand());
-        if(settings.getBoolean("tpsCommand") == true){
+        if(settings.getBoolean("tpsCommand")){
             Bukkit.getPluginCommand("ticks").setExecutor(new tpsCommand());
         }
         //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!

@@ -1,9 +1,6 @@
 package de.yoshi.hoelderlinplugin.listener;
 
 import de.yoshi.hoelderlinplugin.utils.fileconfig;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.KeybindComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.block.BlockFace;
@@ -55,17 +52,17 @@ public class SpawnElytra implements Listener {
         event.setCancelled(true);
         event.getPlayer().setGliding(true);
         flying.add(event.getPlayer());
-        event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder("Drücke ").append(new KeybindComponent("key.swapOffhand")).append(" um dich zu Boosten!").create());
+        //event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder("Drücke ").append(new KeybindComponent("key.swapOffhand")).append(" um dich zu Boosten!").create());
     }
 
     @EventHandler
     public void onDamage(EntityDamageEvent event){
-        if(event.getEntityType() != EntityType.PLAYER && (event.getCause() == EntityDamageEvent.DamageCause.FALL || event.getCause() == EntityDamageEvent.DamageCause.FLY_INTO_WALL) && flying.contains(event.getEntity())) event.setCancelled(true);
+        if(event.getEntityType() == EntityType.PLAYER && (event.getCause() == EntityDamageEvent.DamageCause.FALL || event.getCause() == EntityDamageEvent.DamageCause.FLY_INTO_WALL) && flying.contains(event.getEntity())) event.setCancelled(true);
     }
 
     @EventHandler
     public void onSwapItem(PlayerSwapHandItemsEvent event){
-        if(boosted.contains(event.getPlayer())) return;
+        if(boosted.contains(event.getPlayer()) || event.getPlayer().getGameMode() == GameMode.CREATIVE || event.getPlayer().getGameMode() == GameMode.ADVENTURE) return;
         event.setCancelled(true);
         boosted.add(event.getPlayer());
         event.getPlayer().setVelocity(event.getPlayer().getLocation().getDirection().multiply(multiplyValue));
