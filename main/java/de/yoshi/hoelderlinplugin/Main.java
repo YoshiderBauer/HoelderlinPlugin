@@ -45,7 +45,7 @@ public final class Main extends JavaPlugin {
             world.setDifficulty(Difficulty.PEACEFUL);
             Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
             world.getWorldBorder().setCenter(world.getSpawnLocation());
-            world.getWorldBorder().setSize(20.0);
+            world.getWorldBorder().setSize((double) settings.getInt("SpawnRadius"));
         } else if (start.getBoolean("start")){
             world.setDifficulty(Difficulty.HARD);
             Bukkit.getServer().setDefaultGameMode(GameMode.SURVIVAL);
