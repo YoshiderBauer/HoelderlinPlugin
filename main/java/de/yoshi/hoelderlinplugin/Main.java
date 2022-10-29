@@ -1,10 +1,7 @@
 package de.yoshi.hoelderlinplugin;
 
 import de.yoshi.hoelderlinplugin.Commands.*;
-import de.yoshi.hoelderlinplugin.listener.JoinQuitListener;
-import de.yoshi.hoelderlinplugin.listener.chatListener;
-import de.yoshi.hoelderlinplugin.listener.gamemodeListener;
-import de.yoshi.hoelderlinplugin.listener.serverPing;
+import de.yoshi.hoelderlinplugin.listener.*;
 import de.yoshi.hoelderlinplugin.utils.ItemBuilder;
 import de.yoshi.hoelderlinplugin.utils.fileconfig;
 import de.yoshi.hoelderlinplugin.utils.tpsUtils;
@@ -110,6 +107,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new chatListener(), this);
         pluginManager.registerEvents(new serverPing(), this);
         pluginManager.registerEvents(new gamemodeListener(), this);
+        pluginManager.registerEvents(new SpawnElytra(this), this);
 
         //Commands:
         if(settings.getBoolean("lobbyCommand") == true){
