@@ -39,13 +39,13 @@ public final class Main extends JavaPlugin {
         //this.addSculcSensor();
         this.addBundle();
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        World world = (World) Bukkit.getWorlds().get(0);
+        World world = Bukkit.getWorlds().get(0);
         fileconfig start = new fileconfig("start.yml");
         if(!start.getBoolean("start")){
             world.setDifficulty(Difficulty.PEACEFUL);
             Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
             world.getWorldBorder().setCenter(world.getSpawnLocation());
-            world.getWorldBorder().setSize((double) settings.getInt("SpawnRadius"));
+            world.getWorldBorder().setSize(settings.getInt("SpawnRadius"));
         } else if (start.getBoolean("start")){
             world.setDifficulty(Difficulty.HARD);
             Bukkit.getServer().setDefaultGameMode(GameMode.SURVIVAL);
@@ -107,10 +107,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new chatListener(), this);
         pluginManager.registerEvents(new serverPing(), this);
         pluginManager.registerEvents(new gamemodeListener(), this);
-        /*if(!settings.getBoolean("SpawnElytra")){*/
-            pluginManager.registerEvents(new SpawnElytra(this), this);
-        //}
-
+        pluginManager.registerEvents(new SpawnElytra(this), this);
 
         //Commands:
         if(settings.getBoolean("lobbyCommand")){
@@ -124,8 +121,6 @@ public final class Main extends JavaPlugin {
         if(settings.getBoolean("tpsCommand")){
             Bukkit.getPluginCommand("ticks").setExecutor(new tpsCommand());
         }
-        //Bukkit.getPluginCommand("status").setExecutor(new statusCommand()); !funktioniert noch nicht!
-        //Bukkit.getPluginCommand("status").setTabCompleter(new statusCommand());
         Bukkit.getPluginCommand("cam").setExecutor(new camCommand());
         Bukkit.getPluginCommand("ping").setExecutor(new pingCommand());
 

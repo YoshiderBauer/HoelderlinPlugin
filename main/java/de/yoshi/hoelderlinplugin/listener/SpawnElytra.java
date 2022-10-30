@@ -47,31 +47,35 @@ public class SpawnElytra implements Listener {
 
     @EventHandler
     public void onDoubleJump(PlayerToggleFlightEvent event){
-        if(event.getPlayer().getGameMode() != GameMode.SURVIVAL) return;
-        if(!isInSpawnRadius(event.getPlayer())) return;
+        Player player = event.getPlayer();
+        if(player.getGameMode() != GameMode.SURVIVAL) return;
+        if(!isInSpawnRadius(player)) return;
         event.setCancelled(true);
-        event.getPlayer().setGliding(true);
-        flying.add(event.getPlayer());
-        //event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder("Drücke ").append(new KeybindComponent("key.swapOffhand")).append(" um dich zu Boosten!").create());
+        player.setGliding(true);
+        flying.add(player);
     }
 
     @EventHandler
     public void onDamage(EntityDamageEvent event){
-        if(event.getEntityType() == EntityType.PLAYER && (event.getCause() == EntityDamageEvent.DamageCause.FALL || event.getCause() == EntityDamageEvent.DamageCause.FLY_INTO_WALL) && flying.contains(event.getEntity())) event.setCancelled(true);
+        if(event.getEntityType() != EntityType.PLAYER) return;
+        Player player = (Player) event.getEntity();
+        if(event.getEntityType() == EntityType.PLAYER && (event.getCause() == EntityDamageEvent.DamageCause.FALL || event.getCause() == EntityDamageEvent.DamageCause.FLY_INTO_WALL) && flying.contains(player)) event.setCancelled(true);
     }
 
     @EventHandler
     public void onSwapItem(PlayerSwapHandItemsEvent event){
-        if(boosted.contains(event.getPlayer()) || event.getPlayer().getGameMode() == GameMode.CREATIVE || event.getPlayer().getGameMode() == GameMode.SPECTATOR || !event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType().isAir() || !event.getPlayer().isGliding()) return;
+        Player player = event.getPlayer();
+        if(boosted.contains(player) || player.getGameMode() == GameMode.CREATIVE || player.getGameMode() == GameMode.SPECTATOR || !player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType().isAir() || !player.isGliding()) return;
         event.setCancelled(true);
-        boosted.add(event.getPlayer());
-        event.getPlayer().setVelocity(event.getPlayer().getLocation().getDirection().multiply(multiplyValue));
+        boosted.add(player);
+        player.setVelocity(player.getLocation().getDirection().multiply(multiplyValue));
     }
 
     @EventHandler
     public void onToggleGlide(EntityToggleGlideEvent event){
-        if(event.getEntityType() == EntityType.PLAYER && flying.contains(event.getEntity())) event.setCancelled(true);
-
+        if(event.getEntityType() != EntityType.PLAYER) return;
+        Player player = (Player) event.getEntity();
+        if(event.getEntityType() == EntityType.PLAYER && flying.contains(player)) event.setCancelled(true);
     }
 
     private boolean isInSpawnRadius(Player player){

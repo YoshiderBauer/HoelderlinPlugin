@@ -28,7 +28,7 @@ public class startCommand implements CommandExecutor {
             return true;
         }
         World world = (World) Bukkit.getWorlds().get(0);
-        if(start.getBoolean("start") == true){
+        if(start.getBoolean("start")){
             player.sendMessage(Main.PREFIX + "§cDas Event wurde schon gestartet!");
             return true;
         }
@@ -38,7 +38,7 @@ public class startCommand implements CommandExecutor {
         start.set("start", true);
         start.saveConfig();
         world.getWorldBorder().setCenter(world.getSpawnLocation());
-        world.getWorldBorder().setSize(29999984, 2000);
+        world.getWorldBorder().setSize(29999984.0, 2000);
         world.setDifficulty(Difficulty.HARD);
         Bukkit.getServer().setDefaultGameMode(GameMode.SURVIVAL);
         fileconfig status = new fileconfig("status.yml");
