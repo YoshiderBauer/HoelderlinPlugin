@@ -1,1 +1,2 @@
-1. Use this Code just for personal purposes!
+Not supportet any more.
+Go to https://github.com/YoshiderBauer/ServerPlugin to get the latest updates!
